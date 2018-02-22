@@ -3,8 +3,16 @@ import sys
 
 
 def load_data(path):
-    with open(path) as file_json:
-        deserialized_json = json.loads(file_json.read())
+    try:
+        with open(path) as file_json:
+            try:
+                deserialized_json = json.loads(file_json.read())
+            except json.decoder.JSONDecodeError:
+                print('File on the entered path not JSON format')
+                sys.exit()
+    except FileNotFoundError:
+        print('File on entered path was not found. Check path to file.')
+        sys.exit()
     return deserialized_json
 
 
@@ -18,12 +26,5 @@ if __name__ == '__main__':
     except IndexError:
         print('No path to file. Try again entering the path.')
         sys.exit()
-    try:
-        deserialized_json = load_data(file_path)
-    except FileNotFoundError:
-        print('File on entered path was not found. Check path to file.')
-        sys.exit()
-    except json.decoder.JSONDecodeError:
-        print('File on the entered path not JSON format')
-        sys.exit()
+    deserialized_json = load_data(file_path)
     pretty_print_json(deserialized_json)
