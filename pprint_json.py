@@ -2,8 +2,8 @@ import json
 import sys
 
 
-def load_data(filepath):
-    with open(filepath) as f:
+def load_data(path):
+    with open(path) as f:
         data = json.loads(f.read())
     return data
 
@@ -13,7 +13,6 @@ def pretty_print_json(data):
 
 
 if __name__ == '__main__':
-    path = sys.argv[1]
-    data = load_data(path)
+    filepath = sys.argv[1]
+    data = load_data(filepath)
     pretty_print_json(data)
-
