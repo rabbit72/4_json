@@ -9,8 +9,12 @@ def load_data(path):
 
 
 def pretty_print_json(deserialized_json):
-    print(json.dumps(deserialized_json, sort_keys=True,
-                     indent=4, ensure_ascii=False))
+    print(json.dumps(
+        deserialized_json,
+        sort_keys=True,
+        indent=4,
+        ensure_ascii=False
+    ))
 
 
 if __name__ == '__main__':
