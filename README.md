@@ -32,7 +32,7 @@ Output to console:
 ```
 # Function
 
-```load_data(path)``` - return deserialized json object or ```None``` if an exception occurred
+```load_data(path)``` - return deserialized json object
 
 ```pretty_print_json(obj_json)``` - input json object to the console in a readable form
 
